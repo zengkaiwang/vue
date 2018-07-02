@@ -4,6 +4,11 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
+//引入vue-resource这个http模块
+import VueResource from 'vue-resource'
+//配置
+Vue.use(VueResource);
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
