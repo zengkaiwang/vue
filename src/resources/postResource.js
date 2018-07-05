@@ -7,7 +7,7 @@ let userResource = {
 	    	return Vue.http.get(url)
 	  },
     // 新建保存
-    cteate:function(url, postVo){
+    create:function(url, postVo){
         return Vue.http.post(url, postVo)
     },  
 

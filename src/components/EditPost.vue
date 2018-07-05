@@ -19,6 +19,7 @@
 </template>
 
 <script>
+  import postResource from "@/resources/postResource";
   
   export default {
     name: 'EditPost',
@@ -38,8 +39,8 @@
     methods: {
       save() {
         //新建数据
-        var url = '/flag/posts/cteate'
-        postResource.cteate(url, this.postVo).then(response =>{
+        var url = '/flag/posts/create'
+        postResource.create(url, this.postVo).then(response =>{
           console.log('response', response);
           if(response.data === '新建成功'){
             this.$router.push({path:"/home"});
