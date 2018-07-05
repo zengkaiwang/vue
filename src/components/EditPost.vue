@@ -37,7 +37,18 @@
     },
     methods: {
       save() {
-        this.$router.push({path:"/home"});
+        //新建数据
+        var url = '/flag/posts/cteate'
+        postResource.cteate(url, this.postVo).then(response =>{
+          console.log('response', response);
+          if(response.data === '新建成功'){
+            this.$router.push({path:"/home"});
+          }else{
+            console.log("保存失败");
+          }
+        }).catch(error => {
+          console.log(error);
+        })        
       }  
     }
 
