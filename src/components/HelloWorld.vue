@@ -18,7 +18,7 @@ export default {
   },
   methods: {
     login() {
-      var url = '';
+      var url = '/flag/login';
       this.$http.get(url).then(res => {
         console.log(res)
       }, err => {

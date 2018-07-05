@@ -10,7 +10,18 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+        '/flag': {
+            target: 'http://127.0.0.1:7001', // 目标域名
+            changeOrigin: true,
+            pathRewrite: {
+                '^/flag': ''
+            },
+            headers: {
+                // 'Cookie': 'SID=810q3nmoi5mfp8geb9bkm9jql0;' //这里可以设置cookies, 也可以不设置
+            }
+        }        
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
