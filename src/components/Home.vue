@@ -42,7 +42,14 @@
         this.$router.push({path:"/editPost"});
       }, 
       deletePost(id) {
-
+        var url = '/flag/itemDelete'
+        postResource.deletePost(url, id).then(res => {
+          console.log('删除成功')
+          this.$router.push({path: "/"})
+        })
+        .catch(err => {
+          console.log(err)
+        })
       }
     }
   }
