@@ -15,6 +15,9 @@
 </template>
 
 <script>
+  import postResource from "@/resources/postResource";
+
+
   export default {
     name: 'Home',
     data () {
@@ -27,7 +30,13 @@
     },
     methods:{
       getPosts(){
-
+        var url = '/flag/home/getAllData'
+        postResource.getPostList(url).then(response => {
+          this.dataList = response.data;
+        })
+        .catch(error => {
+          console.log(error);
+        });
       },
       edit(editId){
         this.$router.push({path:"/editPost"});
