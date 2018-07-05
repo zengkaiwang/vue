@@ -6,6 +6,9 @@
 </template>
 
 <script>
+
+import Vue from 'vue'
+
 export default {
   name: 'HelloWorld',
   data () {
@@ -21,10 +24,25 @@ export default {
       var url = '/flag/login';
       this.$http.get(url).then(res => {
         console.log(res)
+        console.log("登录成功")
+        Vue.http.headers.common['x-csrf-token']= this.getCookie('csrfToken');
         this.$router.push({path:"/home"});
       }, err => {
         console.log(err)
       })
+    },
+    getCookie(name){
+      name = name + "="
+      var start = document.cookie.indexOf(name),
+          value = null;
+      if(start>-1){
+          var end = document.cookie.indexOf(";",start);
+          if(end == -1){
+              end = document.cookie.length;
+          }
+          value = document.cookie.substring(start+name.length,end);
+      }
+      return value;
     }
   }
 }
