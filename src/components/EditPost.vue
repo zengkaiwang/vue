@@ -48,18 +48,27 @@
     },
     methods: {
       save() {
-        //新建数据
-        var url = '/flag/posts/create'
-        postResource.create(url, this.postVo).then(response =>{
-          console.log('response', response);
-          if(response.data === '新建成功'){
-            this.$router.push({path:"/home"});
-          }else{
-            console.log("保存失败");
-          }
-        }).catch(error => {
-          console.log(error);
-        })        
+        if (this.id) {  //更新数据
+          var url = '/flag/post/update'
+          this.postVo.id = this.id;
+          postResource.update(url, this.postVo).then(res => {
+            this.$router.push({path: "/home"})
+          }).catch(err => {
+            console.log(err)
+          })          
+        } else {  //新建数据
+          var url = '/flag/posts/create'
+          postResource.create(url, this.postVo).then(response =>{
+            console.log('response', response);
+            if(response.data === '新建成功'){
+              this.$router.push({path:"/home"});
+            }else{
+              console.log("保存失败");
+            }
+          }).catch(error => {
+            console.log(error);
+          })        
+        }
       }  
     }
 

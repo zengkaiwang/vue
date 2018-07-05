@@ -21,7 +21,11 @@ let userResource = {
               id: id
           }
       })
-    },       
+    }, 
+    // post 直接传对象
+    update:function(url, postVo){
+      return Vue.http.post(url, postVo)
+    },          
 
 }
 

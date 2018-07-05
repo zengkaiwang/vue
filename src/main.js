@@ -8,6 +8,7 @@ import router from './router'
 import VueResource from 'vue-resource'
 //配置
 Vue.use(VueResource);
+console.log("执行vue的main.js文件！")
 
 Vue.config.productionTip = false
 
