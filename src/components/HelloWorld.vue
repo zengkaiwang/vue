@@ -21,6 +21,7 @@ export default {
       var url = '/flag/login';
       this.$http.get(url).then(res => {
         console.log(res)
+        this.$router.push({path:"/home"});
       }, err => {
         console.log(err)
       })
