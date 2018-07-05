@@ -13,7 +13,15 @@ let userResource = {
     //删除数据
     deletePost:function(url, id){
         return Vue.http.delete(url, {body: {"id": id}})
-    },     
+    },  
+    // 查询单调数据接口，get 直接传含有参数键值对的 params 对象
+    getPostDetail:function(url, id){
+      return Vue.http.get(url, {
+          params: {
+              id: id
+          }
+      })
+    },       
 
 }
 

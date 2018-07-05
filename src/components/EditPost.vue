@@ -34,7 +34,17 @@
       }
     },
     created() {
-
+      this.id = this.$route.query.id;
+      //如果id存在，说明是编辑
+      if (this.id) {
+        var url = '/flag/getPostDetail'
+        postResource.getPostDetail(url, this.id).then(res => {
+          this.postVo = res.data;
+        })
+        .catch(err => {
+          console.log(err)
+        })
+      }      
     },
     methods: {
       save() {

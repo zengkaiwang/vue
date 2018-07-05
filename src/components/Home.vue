@@ -39,7 +39,14 @@
         });
       },
       edit(editId){
-        this.$router.push({path:"/editPost"});
+        if(editId){
+          //  编程式导航实现跳转，这里用 query 来传参，这样话话，新增页和修改页使用同一个路由就可以，不需要写两个路由
+          this.$router.push({path:"/editPost",query:{id:editId}});
+        }else{
+          //  编程式导航实现跳转
+          this.$router.push({path:"/editPost"});
+        }        
+          // this.$router.push({path:"/editPost"});
       }, 
       deletePost(id) {
         var url = '/flag/itemDelete'
