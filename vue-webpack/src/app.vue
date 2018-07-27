@@ -3,7 +3,7 @@
 </template> 
 
 <script> 
-	export default { data(){ return { msg:'aaaaaaa' } } } 
+	export default { data(){ return { msg:'rtrtrtr' } } } 
 </script> 
 
 <style> 
